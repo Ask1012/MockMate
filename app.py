@@ -16,7 +16,9 @@ def index():
         name = request.form['name']
         email = request.form['email']
         domain = request.form['domain']
-        new_entry = InterviewRequest(name=name, email=email, domain=domain)
+        language = request.form['language']
+        time = request.form['time']
+        new_entry = InterviewRequest(name=name, email=email, domain=domain , time=time, language=language)
         db.session.add(new_entry)
         db.session.commit()
         return render_template('index.html', message='Interview Scheduled Successfully!  We will contact you soon.')
@@ -46,5 +48,5 @@ def contact():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    port = int(os.environ.get("PORT", 5000))  # Render provides PORT env variable
-    app.run(host="0.0.0.0", port=port, debug=True)
+      # Render provides PORT env variable
+    app.run(debug=True)
