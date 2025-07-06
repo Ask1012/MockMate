@@ -50,4 +50,4 @@ if __name__ == '__main__':
         db.create_all()
       # Render provides PORT env variable
     port = int(os.environ.get("PORT", 5000))  # ✅ Correct way to get PORT from env
-    app.run(debug=True, host="0.0.0.0", port=port) )
+    app.run(debug=True, host="0.0.0.0", port=port)
