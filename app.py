@@ -19,7 +19,7 @@ def index():
         new_entry = InterviewRequest(name=name, email=email, domain=domain)
         db.session.add(new_entry)
         db.session.commit()
-        return render_template('index.html', message='Interview Scheduled Successfully!')
+        return render_template('index.html', message='Interview Scheduled Successfully!  We will contact you soon.')
     return render_template('index.html')
 
 @app.route('/admin')
