@@ -49,5 +49,5 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
       # Render provides PORT env variable
-    port = int(os.environ.get("PORT", 5000))
-    app.run(debug=True, port=port)
+    port = int(os.environ.get("PORT", 5000))  # ✅ Correct way to get PORT from env
+    app.run(debug=True, host="0.0.0.0", port=port) )
