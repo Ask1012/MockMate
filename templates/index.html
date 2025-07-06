@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MockMate – Schedule Your Free Mock Interview</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="logo">MockMate</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/contact">Contact</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="form-container">
+        <h2>Schedule Your Free Mock Interview <br>  Languesges : English , Hindi </h2>
+         <form method="POST">
+            <input type="text" name="name" placeholder="Your Full Name" required><br>
+            <input type="email" name="email" placeholder="Your Email Address" required><br>
+            <select name="domain" class="styled-select" required>
+                <option value="">Select Domain</option>
+                <option value="Frontend Development">Frontend Development</option>
+                <option value="Backend Development">Backend Development</option>
+                <option value="Full Stack Development">Full Stack Development</option>
+                <option value="SQL">SQL</option>
+            </select><br>
+            <button type="submit">Schedule Interview</button>
+        </form>
+        {% if message %}
+        <p class="success">{{ message }}</p>
+        {% endif %}
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 MockMate. All rights reserved.</p>
+    </footer>
+</body>
+</html>

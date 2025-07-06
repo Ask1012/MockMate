@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">    
+    <title> Contact </title>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            
+        }
+        h1{
+            text-align: center;
+            color: #0f172a;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+          }
+        input{
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            border: #0f172a 1px solid;
+            
+        }
+
+    </style>
+    <body>
+
+          <header class="site-header">
+        <div class="logo">MockMate</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+        <h1> Contact Us</h1>
+        <div class="container">
+        <form action="/contact" method="Post">
+            <label for="name">Name:</label>
+            <input  type="text" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+            
+            <label for="msg">Message:</label>
+            <input type="text" name="msg" required>
+            <input type="submit" value="Send Message" style="background-color:#7488b7; color:white; border:none; padding:10px 20px; font-size:16px; border-radius:6px; cursor:pointer;">
+
+        </form>
+        {% if message %}
+        <p class="success">{{ message }}</p>
+        {% endif %}
+        </div>
+    </body>
+</html>

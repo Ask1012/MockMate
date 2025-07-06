@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    .dashboard {
+    max-width: 900px;
+    margin: 2rem auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.dashboard h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    color: #0f172a;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.interview-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+}
+
+.interview-table thead {
+    background-color: #0f766e;
+    color: white;
+}
+
+.interview-table th,
+.interview-table td {
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+.interview-table tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+/* Responsive Table on Mobile */
+@media (max-width: 768px) {
+    .interview-table,
+    .interview-table thead,
+    .interview-table tbody,
+    .interview-table th,
+    .interview-table td,
+    .interview-table tr {
+        display: block;
+    }
+
+    .interview-table thead {
+        display: none;
+    }
+
+    .interview-table tr {
+        margin-bottom: 1rem;
+        background: #f8fafc;
+        border-radius: 8px;
+        padding: 0.75rem;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .interview-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem;
+        border: none;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .interview-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #0f172a;
+    }
+
+    .interview-table td:last-child {
+        border-bottom: none;
+    }
+}
+
+</style>
+<body>
+  <div class="dashboard">
+    <h2>Scheduled Interviews</h2>
+    <div class="table-container">
+        <table class="interview-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Domain</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in entries %}
+                <tr>
+                    <td>{{ entry.name }}</td>
+                    <td>{{ entry.email }}</td>
+                    <td>{{ entry.domain }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
